@@ -32,17 +32,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
         
+        let launcherAppId = "com.aldychris.whatsappbar.Launcher"
+        let runningApps = NSWorkspace.shared.runningApplications
+        let isRunning = !runningApps.filter { $0.bundleIdentifier == launcherAppId }.isEmpty
+        
         if UserDefaults.didEnableStartOnLogin == 1 {
-            let launcherAppId = "com.aldychris.whatsappbar.Launcher"
-            let runningApps = NSWorkspace.shared.runningApplications
-            let isRunning = !runningApps.filter { $0.bundleIdentifier == launcherAppId }.isEmpty
-
             SMLoginItemSetEnabled(launcherAppId as CFString, true)
-
-            if isRunning {
-                DistributedNotificationCenter.default().post(name: .killLauncher,
-                                                             object: Bundle.main.bundleIdentifier!)
-            }
+        } else {
+            SMLoginItemSetEnabled(launcherAppId as CFString, false)
+        }
+        
+        if isRunning {
+            DistributedNotificationCenter.default().post(name: .killLauncher,
+                                                         object: Bundle.main.bundleIdentifier!)
         }
         
 //        UserDefaults.clearUserData()

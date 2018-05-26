@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import ServiceManagement
 
 class SettingViewController: NSViewController, NSComboBoxDelegate {
     
@@ -52,6 +53,14 @@ class SettingViewController: NSViewController, NSComboBoxDelegate {
         }
         
         UserDefaults.set(didEnableStartOnLogin: chkStartup.state.rawValue)
+        
+        let launcherAppId = "com.aldychris.whatsappbar.Launcher"
+        if chkStartup.state.rawValue == 1 {
+            SMLoginItemSetEnabled(launcherAppId as CFString, true)
+        }
+        else {
+            SMLoginItemSetEnabled(launcherAppId as CFString, false)
+        }
         
         dismissViewController(self)
     }
