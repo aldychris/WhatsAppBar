@@ -804,10 +804,10 @@
             </objects>
             <point key="canvasLocation" x="8.5" y="809"/>
         </scene>
-        <!--Whats App You Settings-->
+        <!--WhatsAppBar Settings-->
         <scene sceneID="fd8-JH-uRv">
             <objects>
-                <viewController title="Whats App You Settings" storyboardIdentifier="SettingViewController" id="kSt-sB-HaR" customClass="SettingViewController" customModule="Launcher" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="WhatsAppBar Settings" storyboardIdentifier="SettingViewController" id="kSt-sB-HaR" customClass="SettingViewController" customModule="Launcher" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="jHT-xb-sXT">
                         <rect key="frame" x="0.0" y="0.0" width="344" height="80"/>
                         <autoresizingMask key="autoresizingMask"/>
